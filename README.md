@@ -1,2 +1,2 @@
 # js-learners-fundamentals
-A code repo for javascript series at youtube channel
+A code repo for javascript series, js Basics, DOM
