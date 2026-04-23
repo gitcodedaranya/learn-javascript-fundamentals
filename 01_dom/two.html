@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to create a new element in DOM</title>
+</head>
+<body>
+    <div class="parent" style="background-color:#212121; color: #ffff;">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+    </div>
+</body>
+<script>
+    const parentdiv = document.querySelector('.parent');
+    /* console.log(parentdiv);
+    console.log(parentdiv.children);
+    console.log(parentdiv.children[1].innerHTML); */
+    for (let i = 0; i < parentdiv.children.length; i++) {
+        const element = parentdiv.children[i].innerHTML;
+        // console.log(element);
+        
+    }
+    parentdiv.children[1].style.color="orange";
+    /* console.log(parentdiv.firstElementChild);
+    console.log(parentdiv.lastElementChild); */
+    const dayone = document.querySelectorAll(".day");
+    /* console.log(dayone);
+    console.log(dayone.parentElement); */
+
+    //console.log(parentdiv.childNodes); //NodeList(13)
+
+    const creatediv = document.createElement('div');
+    creatediv.id=Math.round(Math.random() * 10 + 1);
+    creatediv.className = "main";
+    creatediv.style.backgroundColor = "green";
+    creatediv.style.padding = "10px";
+    creatediv.setAttribute("title","generated");
+    const addText = document.createTextNode("Create a new Text");
+    creatediv.appendChild(addText);
+    document.body.appendChild(creatediv)
+
+    //Using Function
+    const colors = ["red","yellow","blue","orange"];
+    const texts = ["This is red","This is red yellow","This is red blue","This is red orange"];
+    function colorChange(text,color){
+        const colorDiv = document.createElement('div');
+        colorDiv.className="outer";
+        const AddTextNote = document.createTextNode(text)
+        colorDiv.appendChild(AddTextNote);
+        colorDiv.style.backgroundColor = color;
+        //const afterDiv = document.getElementsByClassName('.main');
+        //afterDiv.after(colorDiv);
+        document.body.appendChild(colorDiv)
+    }
+    for (let i = 0; i < colors.length; i++) {
+        colorChange(texts[i],colors[i]);
+        
+    }
+    
+</script>
+</html>
